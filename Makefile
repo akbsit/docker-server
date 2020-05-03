@@ -20,6 +20,6 @@ local-rebuild:
 	docker-compose up -d --force-recreate --build
 	make docker-status
 
-make docker-status:
+docker-status:
 	docker ps
 	docker-compose ps

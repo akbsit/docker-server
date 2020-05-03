@@ -16,7 +16,7 @@
 ## Полезные ссылки
 
 * [localhost:80](http://localhost/);
-* [MySql:8081](http://localhost:8081/);
+* [MySql:8081](http://localhost:8081/).
 
 ## Сервер
 
