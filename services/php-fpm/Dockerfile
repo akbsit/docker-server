@@ -1,5 +1,5 @@
 FROM phpdockerio/php72-fpm:latest
-WORKDIR '/app'
+WORKDIR '/var/www'
 
 ARG DEBIAN_FRONTEND=noninteractive
 

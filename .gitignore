@@ -1,2 +1,6 @@
 .idea
+
+.data/*
+!.data/.gitkeep
+
 docker-compose.yml
