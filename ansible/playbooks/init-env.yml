@@ -1,0 +1,14 @@
+- name: 'Create environment'
+  hosts: localhost
+  tasks:
+    - name: 'Include global vars'
+      include_vars:
+        dir: ./../vars/global
+    - name: 'Include environment vars'
+      include_vars:
+        dir: ./../vars/{{ env }}
+    - name: 'Create docker-compose.yml file in root folder'
+      template:
+        src: ./../templates/app/docker-compose.yml
+        dest: ./../../docker-compose.yml
+        force: true
