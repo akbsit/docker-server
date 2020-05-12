@@ -33,7 +33,11 @@ services:
       - backend
 
   mysql:
-    build: ./services/mysql
+    build:
+      context: ./services/mysql
+      args:
+        - MYSQL_VERSION={{ MYSQL_VERSION }}
+        - TZ={{ MYSQL_TIMEZONE }}
     container_name: {{ CONTAINER_PREFIX }}{{ CONTAINER_NAME }}-mysql
     restart: always
     command: --default-authentication-plugin=mysql_native_password
@@ -42,6 +46,7 @@ services:
       - MYSQL_DATABASE={{ MYSQL_DATABASE }}
       - MYSQL_USER={{ MYSQL_USER }}
       - MYSQL_PASSWORD={{ MYSQL_PASSWORD }}
+      - TZ={{ MYSQL_TIMEZONE }}
     volumes:
       - ./.data/mysql:/var/lib/mysql
     ports:
