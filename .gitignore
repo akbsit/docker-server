@@ -2,5 +2,7 @@
 
 .data/*
 !.data/.gitkeep
+www/*
+!www/index.php
 
 docker-compose.yml
