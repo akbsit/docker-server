@@ -4,10 +4,13 @@
 
 После запуска сервера, его можно будет увидеть по адрессу `http://localhost/`, отобразиться содержимое файла `./www/index.php`.
 
-> Для изменения названия контейнеров и настроек базы, необходимо отредактировать файл `./ansible/vars/global/config.yml` и пересобрать.
+> Для изменения настроек сервера, необходимо отредактировать файл `./config.yml` и пересобрать.
 
 ## Характеристики по умолчанию
 
+* workspace:
+    * `php`;
+    * `composer`.
 * Nginx - `nginx:alpine`;
 * PHP - `phpdockerio/php72-fpm:latest`;
 * MySQL - `mysql:latest`.
@@ -41,6 +44,12 @@ make local-restart
 
 ```bash
 make local-rebuild
+```
+
+### Открыть консоль workspace
+
+```bash
+make docker-bash
 ```
 
 ### Посмотреть статус контейнеров

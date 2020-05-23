@@ -1,6 +1,9 @@
 - name: 'Create environment'
   hosts: localhost
   tasks:
+    - name: 'Include config.yml vars'
+      include_vars:
+        file: ./../../config.yml
     - name: 'Include global vars'
       include_vars:
         dir: ./../vars/global
