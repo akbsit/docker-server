@@ -10,12 +10,25 @@ volumes:
 
 services:
 
+  workspace:
+    build: ./services/workspace
+    container_name: {{ CONTAINER_PREFIX }}{{ CONTAINER_NAME }}-workspace
+    volumes:
+      - ./www:/var/www
+    ports:
+      - '{{ WORKSPACE_PORT }}:22'
+    tty: true
+    networks:
+      - backend
+
   php-fpm:
     build: ./services/php-fpm
     container_name: {{ CONTAINER_PREFIX }}{{ CONTAINER_NAME }}-php-fpm
     volumes:
       - ./www:/var/www
       - ./services/php-fpm/php7.2.ini:/usr/local/etc/php/php.ini
+    depends_on:
+      - workspace
     networks:
       - backend
 
@@ -32,6 +45,7 @@ services:
     networks:
       - backend
 
+{% if INSTALL_MYSQL %}
   mysql:
     build:
       context: ./services/mysql
@@ -55,3 +69,4 @@ services:
       - nginx
     networks:
       - backend
+{% endif %}
