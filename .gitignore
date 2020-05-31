@@ -5,4 +5,8 @@
 www/*
 !www/index.php
 
+temp/*
+!temp/.gitkeep
+
+config.yml
 docker-compose.yml

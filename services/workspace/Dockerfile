@@ -1,5 +1,7 @@
+ARG CONTAINER_WORKDIR=/var/www
+
 FROM phusion/baseimage:latest
-WORKDIR '/var/www'
+WORKDIR '${CONTAINER_WORKDIR}'
 
 RUN locale-gen en_US.UTF-8
 

@@ -1,5 +1,7 @@
+ARG CONTAINER_WORKDIR=/var/www
+
 FROM phpdockerio/php72-fpm:latest
-WORKDIR '/var/www'
+WORKDIR '${CONTAINER_WORKDIR}'
 
 ARG DEBIAN_FRONTEND=noninteractive
 
