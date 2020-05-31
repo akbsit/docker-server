@@ -53,5 +53,9 @@ RUN curl -s http://getcomposer.org/installer | php && \
     echo "export PATH=${PATH}:/var/www/vendor/bin" >> ~/.bashrc && \
     mv composer.phar /usr/local/bin/composer
 
+# set npm
+RUN apt-get install nodejs -y && \
+    apt-get install npm -y
+
 # set .bashrc
 RUN . ~/.bashrc

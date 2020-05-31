@@ -10,7 +10,9 @@
 
 * workspace:
     * `php`;
-    * `composer`.
+    * `composer`;
+    * `nodels`;
+    * `npm`.
 * Nginx - `nginx:alpine`;
 * PHP - `phpdockerio/php72-fpm:latest`;
 * MySQL - `mysql:latest`.
