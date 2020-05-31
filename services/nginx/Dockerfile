@@ -1,2 +1,4 @@
+ARG CONTAINER_WORKDIR=/var/www
+
 FROM nginx:alpine
-WORKDIR '/var/www'
+WORKDIR '${CONTAINER_WORKDIR}'

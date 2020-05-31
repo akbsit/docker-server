@@ -1,6 +1,11 @@
 - name: 'Create environment'
   hosts: localhost
   tasks:
+    - name: 'Create config.yml file'
+      template:
+        src: ./../../config.yml.example
+        dest: ./../../config.yml
+        force: false
     - name: 'Include config.yml vars'
       include_vars:
         file: ./../../config.yml
@@ -10,6 +15,39 @@
     - name: 'Include environment vars'
       include_vars:
         dir: ./../vars/{{ env }}
+    - name: 'Create web server temp directory for configs'
+      when: INSTALL_NGINX
+      file:
+        path: ./../../temp/services/nginx
+        state: directory
+    - name: 'Create web server config file'
+      when: INSTALL_NGINX
+      template:
+        src: ./../templates/nginx/nginx.conf
+        dest: ./../../temp/services/nginx/nginx.conf
+        force: false
+    - name: 'Create database temp directory for configs'
+      when: INSTALL_MYSQL
+      file:
+        path: ./../../temp/services/mysql
+        state: directory
+    - name: 'Create database config file'
+      when: INSTALL_MYSQL
+      template:
+        src: ./../templates/mysql/my.cnf
+        dest: ./../../temp/services/mysql/my.cnf
+        force: false
+    - name: 'Create php-fpm temp directory for configs'
+      when: INSTALL_PHP_FPM
+      file:
+        path: ./../../temp/services/php-fpm
+        state: directory
+    - name: 'Create php-fpm config file'
+      when: INSTALL_PHP_FPM
+      template:
+        src: ./../templates/php-fpm/php.ini
+        dest: ./../../temp/services/php-fpm/php.ini
+        force: false
     - name: 'Create docker-compose.yml file in root folder'
       template:
         src: ./../templates/app/docker-compose.yml
