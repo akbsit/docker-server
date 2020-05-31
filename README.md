@@ -11,7 +11,7 @@
 * workspace:
     * `php`;
     * `composer`;
-    * `nodels`;
+    * `nodejs`;
     * `npm`.
 * Nginx - `nginx:alpine`;
 * PHP - `phpdockerio/php72-fpm:latest`;
