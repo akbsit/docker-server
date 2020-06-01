@@ -2,7 +2,7 @@
 
 .data/*
 !.data/.gitkeep
-www/*
+www
 !www/index.php
 
 temp/*
