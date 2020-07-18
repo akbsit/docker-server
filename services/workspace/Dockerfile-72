@@ -59,5 +59,11 @@ RUN curl -s http://getcomposer.org/installer | php && \
 RUN apt-get install nodejs -y && \
     apt-get install npm -y
 
+# set tools
+RUN apt-get install make -y && \
+    apt-get install ansible -y && \
+    apt-get install git -y && \
+    apt-get install unzip -y
+
 # set .bashrc
 RUN . ~/.bashrc
