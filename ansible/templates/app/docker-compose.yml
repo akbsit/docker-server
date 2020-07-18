@@ -13,6 +13,7 @@ services:
   workspace:
     build:
       context: ./services/workspace
+      dockerfile: Dockerfile-{{ PHP_VERSION }}
       args:
         - CONTAINER_WORKDIR={{ CONTAINER_WORKDIR }}
     container_name: {{ CONTAINER_PREFIX }}{{ CONTAINER_NAME }}-workspace
@@ -28,6 +29,7 @@ services:
   php-fpm:
     build:
       context: ./services/php-fpm
+      dockerfile: Dockerfile-{{ PHP_VERSION }}
       args:
         - CONTAINER_WORKDIR={{ CONTAINER_WORKDIR }}
     container_name: {{ CONTAINER_PREFIX }}{{ CONTAINER_NAME }}-php-fpm

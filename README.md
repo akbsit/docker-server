@@ -14,7 +14,9 @@
     * `nodejs`;
     * `npm`.
 * Nginx - `nginx:alpine`;
-* PHP - `phpdockerio/php72-fpm:latest`;
+* PHP: 
+    * `phpdockerio/php72-fpm:latest`;
+    * `phpdockerio/php74-fpm:latest`.
 * MySQL - `mysql:latest`.
 
 ## Структура сервера
