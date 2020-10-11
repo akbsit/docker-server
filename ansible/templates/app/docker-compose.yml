@@ -64,8 +64,8 @@ services:
   mysql:
     build:
       context: ./services/mysql
+      dockerfile: Dockerfile-{{ MYSQL_VERSION }}
       args:
-        - MYSQL_VERSION={{ MYSQL_VERSION }}
         - TZ={{ MYSQL_TIMEZONE }}
         - CONTAINER_WORKDIR={{ CONTAINER_WORKDIR }}
     container_name: {{ CONTAINER_PREFIX }}{{ CONTAINER_NAME }}-mysql
@@ -78,7 +78,7 @@ services:
       - MYSQL_PASSWORD={{ MYSQL_PASSWORD }}
       - TZ={{ MYSQL_TIMEZONE }}
     volumes:
-      - ./.data/mysql:/var/lib/mysql
+      - ./.data/mysql-{{ MYSQL_VERSION }}:/var/lib/mysql
       - ./temp/services/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     ports:
       - '{{ MYSQL_PORT }}:3306'
