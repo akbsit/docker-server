@@ -1,4 +1,4 @@
-.idea
+/.idea
 
 .data/*
 !.data/.gitkeep
@@ -8,5 +8,5 @@ www
 temp/*
 !temp/.gitkeep
 
-config.yml
-docker-compose.yml
+/config.yml
+/docker-compose.yml
