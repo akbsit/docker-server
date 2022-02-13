@@ -1,11 +1,6 @@
 - name: 'Create environment'
   hosts: localhost
   tasks:
-    - name: 'Create config.yml file'
-      template:
-        src: ./../../config.yml.example
-        dest: ./../../config.yml
-        force: false
     - name: 'Include config.yml vars'
       include_vars:
         file: ./../../config.yml
