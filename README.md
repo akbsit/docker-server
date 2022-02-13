@@ -55,13 +55,7 @@ make local-restart
 Пересобирает контейра
 
 ```bash
-make local-rebuild-soft
-```
-
-Пересобирает контейра и устанавливает файлы в папке `temp` в изначальное состояние
-
-```bash
-make local-rebuild-force
+make local-rebuild
 ```
 
 ### Открыть консоль workspace

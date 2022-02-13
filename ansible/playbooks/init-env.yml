@@ -15,6 +15,12 @@
     - name: 'Include environment vars'
       include_vars:
         dir: ./../vars/{{ env }}
+    # Remove temp files
+    - name: 'Remove temp services directory'
+      file:
+        path: ./../../temp/services
+        state: absent
+    # Install docker components
     - name: 'Create web server temp directory for configs'
       when: INSTALL_NGINX
       file:
@@ -25,7 +31,7 @@
       template:
         src: ./../templates/nginx/nginx.conf
         dest: ./../../temp/services/nginx/nginx.conf
-        force: false
+        force: true
     - name: 'Create database temp directory for configs'
       when: INSTALL_MYSQL
       file:
@@ -36,7 +42,7 @@
       template:
         src: ./../templates/mysql/my.cnf
         dest: ./../../temp/services/mysql/my.cnf
-        force: false
+        force: true
     - name: 'Create php-fpm temp directory for configs'
       when: INSTALL_PHP_FPM
       file:
@@ -47,7 +53,8 @@
       template:
         src: ./../templates/php-fpm/php.ini
         dest: ./../../temp/services/php-fpm/php.ini
-        force: false
+        force: true
+    # Generate app files
     - name: 'Create docker-compose.yml file in root folder'
       template:
         src: ./../templates/app/docker-compose.yml
