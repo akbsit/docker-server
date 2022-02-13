@@ -42,6 +42,7 @@ RUN apt-get update && \
         libxml2-dev \
         xz-utils \
         libsqlite3-dev \
+        libpng-dev \
         sqlite3 \
         git \
         curl \
