@@ -6,6 +6,7 @@ PHP_VERSION: 7.2
 MYSQL_VERSION: 8.0
 
 # General containers
+INSTALL_REDIS: false
 INSTALL_PHP_FPM: true
 INSTALL_NGINX: true
 INSTALL_MYSQL: true

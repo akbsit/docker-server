@@ -4,9 +4,17 @@ networks:
   backend:
     driver: ${NETWORKS_DRIVER}
 
+{% if INSTALL_REDIS or INSTALL_MYSQL %}
 volumes:
+{% if INSTALL_REDIS %}
+  redis:
+    driver: ${VOLUMES_DRIVER}
+{% endif %}
+{% if INSTALL_MYSQL %}
   mysql:
     driver: ${VOLUMES_DRIVER}
+{% endif %}
+{% endif %}
 
 services:
 
@@ -24,6 +32,27 @@ services:
     tty: true
     networks:
       - backend
+
+{% if INSTALL_REDIS %}
+  redis:
+    build:
+      context: ./services/redis
+      args:
+        - REDIS_PASSWORD=${REDIS_PASSWORD}
+    container_name: ${CONTAINER_PREFIX}{{ CONTAINER_NAME }}-redis
+    restart: 'no'
+    volumes:
+      - ${EXTERNAL_REDIS_PATH}:${CONTAINER_REDIS_PATH}
+    ports:
+      - '${EXTERNAL_REDIS_PORT}:${CONTAINER_REDIS_PORT}'
+    networks:
+      - backend
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '3'
+{% endif %}
 
 {% if INSTALL_PHP_FPM %}
   php-fpm:

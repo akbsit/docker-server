@@ -15,7 +15,8 @@
     * `npm`.
 * Nginx - `nginx:alpine`;
 * PHP: `7.2`, `7.4`;
-* MySQL - `5.6`, `5.7`, `8.0`.
+* MySQL - `5.6`, `5.7`, `8.0`;
+* Redis - `redis:latest`.
 
 ## Структура сервера
 
@@ -29,7 +30,8 @@
 ## Полезные ссылки
 
 * [localhost:80](http://localhost/);
-* [MySql:8081](http://localhost:8081/).
+* [MySql:8081](http://localhost:8081/);
+* [redis:6267](http://localhost:6267/).
 
 ## Сервер
 
