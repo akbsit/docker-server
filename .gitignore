@@ -3,4 +3,5 @@
 www
 !www/index.php
 
+/.env
 /docker-compose.yml

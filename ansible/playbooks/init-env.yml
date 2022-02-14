@@ -50,6 +50,11 @@
         dest: ./../../temp/services/php-fpm/php.ini
         force: true
     # Generate app files
+    - name: 'Create docker .env file'
+      template:
+        src: ./../templates/app/docker.env
+        dest: ./../../.env
+        force: true
     - name: 'Create docker-compose.yml file in root folder'
       template:
         src: ./../templates/app/docker-compose.yml
