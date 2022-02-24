@@ -16,7 +16,8 @@
 * Nginx - `nginx:alpine`;
 * PHP: `7.2`, `7.4`;
 * MySQL - `5.6`, `5.7`, `8.0`;
-* Redis - `redis:latest`.
+* Redis - `redis:latest`;
+* Supervisor.
 
 ## Структура сервера
 

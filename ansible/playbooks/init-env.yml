@@ -49,6 +49,17 @@
         src: ./../templates/php-fpm/php.ini
         dest: ./../../temp/services/php-fpm/php.ini
         force: true
+    - name: 'Create supervisor temp directory for configs'
+      when: INSTALL_SUPERVISOR
+      file:
+        path: ./../../temp/services/supervisor
+        state: directory
+    - name: 'Create supervisor config file'
+      when: INSTALL_SUPERVISOR
+      template:
+        src: ./../templates/supervisor/supervisor-worker.conf
+        dest: ./../../temp/services/supervisor/supervisor-worker.conf
+        force: true
     # Generate app files
     - name: 'Create docker .env file'
       template:

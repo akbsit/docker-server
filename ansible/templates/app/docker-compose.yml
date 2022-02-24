@@ -27,6 +27,9 @@ services:
     container_name: ${CONTAINER_PREFIX}{{ CONTAINER_NAME }}-workspace
     volumes:
       - ${EXTERNAL_WORKDIR_PATH}:${CONTAINER_WORKDIR_PATH}
+{% if INSTALL_SUPERVISOR %}
+      - ${EXTERNAL_SUPERVISOR_PATH}:${CONTAINER_SUPERVISOR_PATH}
+{% endif %}
     ports:
       - '${EXTERNAL_WORKSPACE_PORT}:${CONTAINER_WORKSPACE_PORT}'
     tty: true
@@ -51,6 +54,29 @@ services:
       driver: 'json-file'
       options:
         max-size: '10m'
+        max-file: '3'
+{% endif %}
+
+{% if INSTALL_SUPERVISOR %}
+  supervisor:
+    build:
+      context: ./services/supervisor
+      args:
+        - PHP_VERSION={{ PHP_VERSION }}
+    container_name: ${CONTAINER_PREFIX}{{ CONTAINER_NAME }}-supervisor
+    volumes:
+      - ${EXTERNAL_WORKDIR_PATH}:${CONTAINER_WORKDIR_PATH}${CONTAINER_FLAG}
+      - ${EXTERNAL_SUPERVISOR_PATH}:${CONTAINER_SUPERVISOR_PATH}
+    depends_on:
+      - workspace
+    extra_hosts:
+      - 'dockerhost:${DOCKER_HOST_IP}'
+    networks:
+      - backend
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '100m'
         max-file: '3'
 {% endif %}
 
