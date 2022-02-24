@@ -24,6 +24,8 @@ services:
       dockerfile: Dockerfile-{{ PHP_VERSION }}
       args:
         - CONTAINER_WORKDIR=${CONTAINER_WORKDIR_PATH}
+        - INSTALL_NODE=${WORKSPACE_ENABLE_NODE}
+        - NODE_VERSION=${WORKSPACE_NODE_VERSION}
     container_name: ${CONTAINER_PREFIX}{{ CONTAINER_NAME }}-workspace
     volumes:
       - ${EXTERNAL_WORKDIR_PATH}:${CONTAINER_WORKDIR_PATH}
