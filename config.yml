@@ -13,4 +13,5 @@ INSTALL_NGINX: true
 INSTALL_MYSQL: true
 
 # Server settings
+WORKSPACE_ENABLE_CRONTAB: true
 NGINX_ROOT_DIR: /var/www

@@ -11,6 +11,10 @@
       include_vars:
         dir: ./../vars/{{ env }}
     # Remove temp files
+    - name: 'Remove workspace crontab file'
+      file:
+        path: ./../../services/workspace/crontab/root
+        state: absent
     - name: 'Remove temp services directory'
       file:
         path: ./../../temp/services
@@ -59,6 +63,13 @@
       template:
         src: ./../templates/supervisor/supervisor-worker.conf
         dest: ./../../temp/services/supervisor/supervisor-worker.conf
+        force: true
+    # Enable docker container sections
+    - name: 'Create workspace crontab file'
+      when: WORKSPACE_ENABLE_CRONTAB
+      template:
+        src: ./../templates/workspace/root
+        dest: ./../../services/workspace/crontab/root
         force: true
     # Generate app files
     - name: 'Create docker .env file'
