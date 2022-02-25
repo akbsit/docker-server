@@ -14,7 +14,7 @@
     * `nodejs`;
     * `npm`.
 * Nginx - `nginx:alpine`;
-* PHP: `7.2`, `7.4`;
+* PHP: `7.2`, `7.4`, `8.0`;
 * MySQL - `5.6`, `5.7`, `8.0`;
 * Redis - `redis:latest`;
 * Supervisor;
