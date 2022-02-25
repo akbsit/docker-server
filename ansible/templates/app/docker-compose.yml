@@ -82,6 +82,32 @@ services:
         max-file: '3'
 {% endif %}
 
+{% if INSTALL_LARAVEL_HORIZON %}
+  laravel-horizon:
+    build:
+      context: ./services/laravel-horizon
+      args:
+        - CHANGE_SOURCE=${LARAVEL_HORIZON_CHANGE_SOURCE}
+        - PHP_VERSION={{ PHP_VERSION }}
+        - INSTALL_BCMATH=${LARAVEL_HORIZON_ENABLE_BCMATH}
+        - INSTALL_PHPREDIS=${LARAVEL_HORIZON_ENABLE_PHPREDIS}
+    container_name: ${CONTAINER_PREFIX}{{ CONTAINER_NAME }}-laravel-horizon
+    volumes:
+      - ${EXTERNAL_WORKDIR_PATH}:${CONTAINER_WORKDIR_PATH}
+      - ${EXTERNAL_LARAVEL_HORIZON_PATH}:${CONTAINER_LARAVEL_HORIZON_PATH}
+    depends_on:
+      - workspace
+    extra_hosts:
+      - 'dockerhost:${DOCKER_HOST_IP}'
+    networks:
+      - backend
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '3'
+{% endif %}
+
 {% if INSTALL_PHP_FPM %}
   php-fpm:
     build:

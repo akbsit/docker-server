@@ -64,6 +64,17 @@
         src: ./../templates/supervisor/supervisor-worker.conf
         dest: ./../../temp/services/supervisor/supervisor-worker.conf
         force: true
+    - name: 'Create laravel horizon temp directory for configs'
+      when: INSTALL_LARAVEL_HORIZON
+      file:
+        path: ./../../temp/services/laravel-horizon
+        state: directory
+    - name: 'Create laravel horizon config file'
+      when: INSTALL_LARAVEL_HORIZON
+      template:
+        src: ./../templates/laravel-horizon/laravel-horizon.conf
+        dest: ./../../temp/services/laravel-horizon/laravel-horizon.conf
+        force: true
     # Enable docker container sections
     - name: 'Create workspace crontab file'
       when: WORKSPACE_ENABLE_CRONTAB

@@ -17,7 +17,8 @@
 * PHP: `7.2`, `7.4`;
 * MySQL - `5.6`, `5.7`, `8.0`;
 * Redis - `redis:latest`;
-* Supervisor.
+* Supervisor;
+* Laravel horizon.
 
 ## Структура сервера
 
