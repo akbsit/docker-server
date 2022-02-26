@@ -171,3 +171,19 @@ services:
     networks:
       - backend
 {% endif %}
+
+{% if INSTALL_MAILDEV %}
+  maildev:
+    build: ./services/maildev
+    container_name: ${CONTAINER_PREFIX}{{ CONTAINER_NAME }}-maildev
+    ports:
+      - '${EXTERNAL_MAILDEV_HTTP_PORT}:${CONTAINER_MAILDEV_HTTP_PORT}'
+      - '${EXTERNAL_MAILDEV_SMTP_PORT}:${CONTAINER_MAILDEV_SMTP_PORT}'
+    networks:
+      - backend
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+{% endif %}

@@ -6,19 +6,20 @@
 
 > Для настройки сервера, необходимо сконфигурировать файл `./config.yml` и выполнить команду `make local-start`.
 
-## Характеристики по умолчанию
+## Характеристики
 
 * workspace:
     * `php`;
     * `composer`;
     * `nodejs`;
     * `npm`.
-* Nginx - `nginx:alpine`;
-* PHP: `7.2`, `7.4`, `8.0`;
-* MySQL - `5.6`, `5.7`, `8.0`;
-* Redis - `redis:latest`;
-* Supervisor;
-* Laravel horizon.
+* nginx - `nginx:alpine`;
+* php: `7.2`, `7.4`, `8.0`;
+* mysql - `5.6`, `5.7`, `8.0`;
+* redis - `redis:latest`;
+* maildev;
+* supervisor;
+* laravel horizon.
 
 ## Структура сервера
 
@@ -32,8 +33,9 @@
 ## Полезные ссылки
 
 * [localhost:80](http://localhost/);
-* [MySql:8081](http://localhost:8081/);
-* [redis:6267](http://localhost:6267/).
+* [mysql:8081](http://localhost:8081/);
+* [redis:6267](http://localhost:6267/);
+* [maildev:8081](http://localhost:1080/).
 
 ## Сервер
 
