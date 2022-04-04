@@ -187,3 +187,19 @@ services:
         max-size: "10m"
         max-file: "3"
 {% endif %}
+
+{% if INSTALL_BEANSTALKD %}
+  beanstalkd:
+    build:
+      context: ./services/beanstalkd
+      args:
+        - EXPOSE=${EXTERNAL_BEANSTALKD_PORT}
+    container_name: ${CONTAINER_PREFIX}{{ CONTAINER_NAME }}-beanstalkd
+    ports:
+      - '${EXTERNAL_BEANSTALKD_PORT}:${CONTAINER_BEANSTALKD_PORT}'
+    privileged: true
+    depends_on:
+      - php-fpm
+    networks:
+      - backend
+{% endif %}

@@ -18,6 +18,7 @@
 * mysql - `5.6`, `5.7`, `8.0`;
 * redis - `redis:latest`;
 * maildev;
+* beanstalkd;
 * supervisor;
 * laravel horizon.
 
@@ -33,8 +34,6 @@
 ## Полезные ссылки
 
 * [localhost:80](http://localhost/);
-* [mysql:8081](http://localhost:8081/);
-* [redis:6267](http://localhost:6267/);
 * [maildev:8081](http://localhost:1080/).
 
 ## Сервер
