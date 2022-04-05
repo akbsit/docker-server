@@ -13,10 +13,10 @@
     * `composer`;
     * `nodejs`;
     * `npm`.
-* nginx - `nginx:alpine`;
 * php: `7.2`, `7.4`, `8.0`;
-* mysql - `5.6`, `5.7`, `8.0`;
-* redis - `redis:latest`;
+* mysql;
+* nginx;
+* redis;
 * maildev;
 * beanstalkd;
 * supervisor;

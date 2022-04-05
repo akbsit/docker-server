@@ -1,6 +1,6 @@
-FROM alpine
-
 ARG EXPOSE=11300
+
+FROM alpine
 
 RUN apk add --no-cache beanstalkd
 

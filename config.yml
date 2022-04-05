@@ -1,10 +1,5 @@
 CONTAINER_NAME: default
 
-# Parameter PHP_VERSION accepted values: 7.2, 7.4, 8.0
-PHP_VERSION: 8.0
-# Parameter MYSQL_VERSION accepted values: 5.6, 5.7, 8.0
-MYSQL_VERSION: 8.0
-
 # General containers
 INSTALL_REDIS: false
 INSTALL_SUPERVISOR: false
@@ -18,3 +13,7 @@ INSTALL_MYSQL: true
 # Server settings
 WORKSPACE_ENABLE_CRONTAB: true
 NGINX_ROOT_DIR: /var/www
+
+# Service versions
+PHP_VERSION: 8.0    # accepted values: 7.2, 7.4, 8.0
+MYSQL_VERSION: 8.0

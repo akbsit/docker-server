@@ -21,7 +21,7 @@ services:
   workspace:
     build:
       context: ./services/workspace
-      dockerfile: Dockerfile-{{ PHP_VERSION }}
+      dockerfile: ./version/{{ PHP_VERSION }}/Dockerfile
       args:
         - CONTAINER_WORKDIR=${CONTAINER_WORKDIR_PATH}
         - INSTALL_NODE=${WORKSPACE_ENABLE_NODE}
@@ -44,6 +44,7 @@ services:
       context: ./services/redis
       args:
         - REDIS_PASSWORD=${REDIS_PASSWORD}
+        - EXPOSE=${CONTAINER_REDIS_PORT}
     container_name: ${CONTAINER_PREFIX}{{ CONTAINER_NAME }}-redis
     restart: 'no'
     volumes:
@@ -111,8 +112,7 @@ services:
 {% if INSTALL_PHP_FPM %}
   php-fpm:
     build:
-      context: ./services/php-fpm
-      dockerfile: Dockerfile-{{ PHP_VERSION }}
+      context: ./services/php-fpm/version/{{ PHP_VERSION }}
       args:
         - CONTAINER_WORKDIR=${CONTAINER_WORKDIR_PATH}
     container_name: ${CONTAINER_PREFIX}{{ CONTAINER_NAME }}-php-fpm
@@ -148,10 +148,11 @@ services:
   mysql:
     build:
       context: ./services/mysql
-      dockerfile: Dockerfile-{{ MYSQL_VERSION }}
       args:
+        - MYSQL_VERSION={{ MYSQL_VERSION }}
         - TZ=${MYSQL_TIMEZONE}
         - CONTAINER_WORKDIR=${CONTAINER_WORKDIR_PATH}
+        - EXPOSE=${CONTAINER_MYSQL_PORT}
     container_name: ${CONTAINER_PREFIX}{{ CONTAINER_NAME }}-mysql
     restart: always
     command: --default-authentication-plugin=mysql_native_password
@@ -174,7 +175,11 @@ services:
 
 {% if INSTALL_MAILDEV %}
   maildev:
-    build: ./services/maildev
+    build:
+      context: ./services/maildev
+      args:
+        - EXPOSE_HTTP_PORT=${CONTAINER_MAILDEV_HTTP_PORT}
+        - EXPOSE_SMTP_PORT=${CONTAINER_MAILDEV_SMTP_PORT}
     container_name: ${CONTAINER_PREFIX}{{ CONTAINER_NAME }}-maildev
     ports:
       - '${EXTERNAL_MAILDEV_HTTP_PORT}:${CONTAINER_MAILDEV_HTTP_PORT}'
@@ -193,7 +198,7 @@ services:
     build:
       context: ./services/beanstalkd
       args:
-        - EXPOSE=${EXTERNAL_BEANSTALKD_PORT}
+        - EXPOSE=${CONTAINER_BEANSTALKD_PORT}
     container_name: ${CONTAINER_PREFIX}{{ CONTAINER_NAME }}-beanstalkd
     ports:
       - '${EXTERNAL_BEANSTALKD_PORT}:${CONTAINER_BEANSTALKD_PORT}'

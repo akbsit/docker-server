@@ -1,6 +1,9 @@
+ARG CONTAINER_WORKDIR=/var/www
+ARG INSTALL_NODE=false
+ARG NODE_VERSION=node
+
 FROM phusion/baseimage:0.11
 
-ARG CONTAINER_WORKDIR=/var/www
 WORKDIR "${CONTAINER_WORKDIR}"
 
 RUN locale-gen en_US.UTF-8
@@ -22,22 +25,21 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y --allow-downgrades --allow-remove-essential \
         --allow-change-held-packages \
-        php7.4-cli \
-        php7.4-common \
-        php7.4-curl \
-        php7.4-intl \
-        php7.4-json \
-        php7.4-xml \
-        php7.4-mbstring \
-        php7.4-mysql \
-        php7.4-pgsql \
-        php7.4-sqlite \
-        php7.4-sqlite3 \
-        php7.4-zip \
-        php7.4-bcmath \
-        php7.4-memcached \
-        php7.4-gd \
-        php7.4-dev \
+        php8.0-cli \
+        php8.0-common \
+        php8.0-curl \
+        php8.0-intl \
+        php8.0-xml \
+        php8.0-mbstring \
+        php8.0-mysql \
+        php8.0-pgsql \
+        php8.0-sqlite \
+        php8.0-sqlite3 \
+        php8.0-zip \
+        php8.0-bcmath \
+        php8.0-memcached \
+        php8.0-gd \
+        php8.0-dev \
         pkg-config \
         libcurl4-openssl-dev \
         libedit-dev \
@@ -58,7 +60,8 @@ RUN apt-get update && \
         ansible \
         unzip \
         mysql-client \
-    && apt-get clean
+    && apt-get clean \
+    && update-alternatives --set php /usr/bin/php8.0
 
 ###########################################################################
 # Composer
@@ -71,9 +74,6 @@ RUN curl -s http://getcomposer.org/installer | php && \
 ###########################################################################
 # Node / NPM / NVM
 ###########################################################################
-
-ARG INSTALL_NODE=false
-ARG NODE_VERSION=node
 
 ENV NVM_DIR /home/.nvm
 
