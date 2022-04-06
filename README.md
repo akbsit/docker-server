@@ -4,6 +4,8 @@
 
 После запуска сервера, его можно будет увидеть по адрессу `http://localhost/`, отобразиться содержимое файла `./www/index.php`.
 
+![screenshot-1](.docs/screenshot-1.png)
+
 > Для настройки сервера, необходимо сконфигурировать файл `./config.yml` и выполнить команду `make local-start`.
 
 ## Характеристики
@@ -34,7 +36,7 @@
 ## Полезные ссылки
 
 * [localhost:80](http://localhost/);
-* [maildev:8081](http://localhost:1080/).
+* [maildev:1080](http://localhost:1080/).
 
 ## Команды управления
 
