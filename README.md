@@ -37,4 +37,5 @@ After starting the server, it can be seen at `http://localhost/`, display the co
 ## Control commands
 
 * [Server](.docs/server/server.md);
-* [Server settings](.docs/server/server-settings.md).
+* [Server settings](.docs/server/server-settings.md);
+* [Something not work, look here](.docs/server/server-hack.md).
