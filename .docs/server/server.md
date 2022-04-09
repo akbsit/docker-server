@@ -1,38 +1,36 @@
-# Сервер
+# Server
 
-### Запустить
+### Start
 
 ```bash
 make local-start
 ```
 
-### Остановить
+### Stop
 
 ```bash
 make local-stop
 ```
 
-### Перезапустить
+### Restart
 
 ```bash
 make local-restart
 ```
 
-### Пересобрать
-
-Пересобирает контейра
+### Rebuild
 
 ```bash
 make local-rebuild
 ```
 
-### Открыть консоль workspace
+### Open console workspace
 
 ```bash
 make docker-bash
 ```
 
-### Посмотреть статус контейнеров
+### View container statuses
 
 ```bash
 make docker-status

@@ -1,9 +1,6 @@
-ARG CONTAINER_WORKDIR=/var/www
-ARG INSTALL_NODE=false
-ARG NODE_VERSION=node
-
 FROM phusion/baseimage:0.11
 
+ARG CONTAINER_WORKDIR=/var/www
 WORKDIR "${CONTAINER_WORKDIR}"
 
 RUN locale-gen en_US.UTF-8
@@ -74,6 +71,9 @@ RUN curl -s http://getcomposer.org/installer | php && \
 ###########################################################################
 # Node / NPM / NVM
 ###########################################################################
+
+ARG INSTALL_NODE=false
+ARG NODE_VERSION=node
 
 ENV NVM_DIR /home/.nvm
 

@@ -1,54 +1,54 @@
-# Настройки сервера
+# Server settings
 
-### Просмотреть
+### View
 
-#### Список параметров команды
+#### Parameter list
 
- Название | Тип | Описание
-:-------|:-------------|:--------
-path | string | Путь до файла настроек
+ Name | Type | Description
+:-------|:-------|:-------
+path | string | Path to the config file
 
 ```bash
 ansible-vault view --vault-id password <path>
 ```
 
-#### Пример выполнения команды
+#### Example
 
 ```bash
 ansible-vault view --vault-id password ansible/vars/global/vault.yml
 ```
 
-### Расшифровать
+### Decrypt
 
-#### Список параметров команды
+#### Parameter list
 
- Название | Тип | Описание
-:-------|:-------------|:--------
-path | string | Путь до файла настроек
+ Name | Type | Description
+:-------|:-------|:-------
+path | string | Path to the config file
 
 ```bash
 ansible-vault decrypt --vault-id password <path>
 ```
 
-#### Пример выполнения команды
+#### Example
 
 ```bash
 ansible-vault decrypt --vault-id password ansible/vars/global/vault.yml
 ```
 
-### Зашифровать
+### Encrypt
 
-#### Список параметров команды
+#### Parameter list
 
- Название | Тип | Описание
-:-------|:-------------|:--------
-path | string | Путь до файла настроек
+ Name | Type | Description
+:-------|:-------|:-------
+path | string | Path to the config file
 
 ```bash
 ansible-vault encrypt --vault-id password <path>
 ```
 
-#### Пример выполнения команды
+#### Example
 
 ```bash
 ansible-vault encrypt --vault-id password ansible/vars/global/vault.yml

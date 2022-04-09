@@ -1,9 +1,9 @@
-ARG CONTAINER_WORKDIR=/var/www
-ARG DEBIAN_FRONTEND=noninteractive
-
 FROM phpdockerio/php74-fpm:latest
 
+ARG CONTAINER_WORKDIR=/var/www
 WORKDIR "${CONTAINER_WORKDIR}"
+
+ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
     && apt-get -y --no-install-recommends install php7.4-mysql \

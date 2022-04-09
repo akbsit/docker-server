@@ -1,21 +1,17 @@
 # docker-server
 
-Предварительно перед началом работы с сервером необходимо установить: **docker**, **ansible**, **make**.
+Before you start working with the server, you must install: **docker**, **ansible**, **make**.
 
-После запуска сервера, его можно будет увидеть по адрессу `http://localhost/`, отобразиться содержимое файла `./www/index.php`.
+After starting the server, it can be seen at `http://localhost/`, display the contents of the file `./www/index.php`.
 
 ![screenshot-1](.docs/screenshot-1.png)
 
-> Для настройки сервера, необходимо сконфигурировать файл `./config.yml` и выполнить команду `make local-start`.
+> To configure the server, you need to configure the file `./config.yml` and run the command `make local-start`.
 
-## Характеристики
+## Characteristics
 
-* workspace:
-    * `php`;
-    * `composer`;
-    * `nodejs`;
-    * `npm`.
 * php: `7.2`, `7.4`, `8.0`;
+* workspace;
 * mysql;
 * nginx;
 * redis;
@@ -24,21 +20,21 @@
 * supervisor;
 * laravel horizon.
 
-## Структура сервера
+## Server structure
 
-* `.data` - данные хранящиеся на основной OC и подключаемые в контейнера;
-* `ansible` - конфигурационные файлы;
-* `service` - подключаемые сервисы;
-* `temp` - генерируемые файлы при старте сервера;
-    * `logs` - логи сервисов;
-* `www` - корневая папка сервера.
+* `.data` - data stored on the main OC and connected to the container;
+* `ansible` - configuration files;
+* `service` - connected services;
+* `temp` - generated files at server started;
+    * `logs` - service logs;
+* `www` - server root folder.
 
-## Полезные ссылки
+## Useful links
 
 * [localhost:80](http://localhost/);
 * [maildev:1080](http://localhost:1080/).
 
-## Команды управления
+## Control commands
 
-* [Сервер](.docs/server/server.md);
-* [Настройки сервера](.docs/server/server-settings.md).
+* [Server](.docs/server/server.md);
+* [Server settings](.docs/server/server-settings.md).
