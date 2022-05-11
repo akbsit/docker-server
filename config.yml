@@ -15,5 +15,5 @@ WORKSPACE_ENABLE_CRONTAB: true
 NGINX_ROOT_DIR: /var/www
 
 # Service versions
-PHP_VERSION: 8.0    # accepted values: 7.2, 7.4, 8.0
+PHP_VERSION: 8.1    # accepted values: 7.2, 7.4, 8.0, 8.1
 MYSQL_VERSION: 8.0

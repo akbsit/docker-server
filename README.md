@@ -10,7 +10,7 @@ After starting the server, it can be seen at `http://localhost/`, display the co
 
 ## Characteristics
 
-* php: `7.2`, `7.4`, `8.0`;
+* php: `7.2`, `7.4`, `8.0`, `8.1`;
 * workspace;
 * mysql;
 * nginx;
