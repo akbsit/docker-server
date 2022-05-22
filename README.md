@@ -23,6 +23,7 @@ After starting the server, it can be seen at `http://localhost/`, display the co
 ## Server structure
 
 * `.data` - data stored on the main OC and connected to the container;
+* `.docs` - documentations data;
 * `ansible` - configuration files;
 * `service` - connected services;
 * `temp` - generated files at server started;
