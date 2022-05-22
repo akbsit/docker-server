@@ -32,7 +32,7 @@
     - name: 'Create web server config file'
       when: INSTALL_NGINX
       template:
-        src: ./../templates/nginx/nginx.conf
+        src: ./../templates/nginx/{{ env }}.nginx.conf
         dest: ./../../temp/services/nginx/nginx.conf
         force: true
     - name: 'Create database temp directory for configs'
@@ -43,7 +43,7 @@
     - name: 'Create database config file'
       when: INSTALL_MYSQL
       template:
-        src: ./../templates/mysql/my.cnf
+        src: ./../templates/mysql/{{ env }}.my.cnf
         dest: ./../../temp/services/mysql/my.cnf
         force: true
     - name: 'Create php-fpm temp directory for configs'
@@ -54,7 +54,7 @@
     - name: 'Create php-fpm config file'
       when: INSTALL_PHP_FPM
       template:
-        src: ./../templates/php-fpm/php.ini
+        src: ./../templates/php-fpm/{{ env }}.php.ini
         dest: ./../../temp/services/php-fpm/php.ini
         force: true
     - name: 'Create supervisor temp directory for configs'
@@ -65,7 +65,7 @@
     - name: 'Create supervisor config file'
       when: INSTALL_SUPERVISOR
       template:
-        src: ./../templates/supervisor/supervisor-worker.conf
+        src: ./../templates/supervisor/{{ env }}.supervisor-worker.conf
         dest: ./../../temp/services/supervisor/supervisor-worker.conf
         force: true
     - name: 'Create laravel horizon temp directory for configs'
@@ -76,24 +76,24 @@
     - name: 'Create laravel horizon config file'
       when: INSTALL_LARAVEL_HORIZON
       template:
-        src: ./../templates/laravel-horizon/laravel-horizon.conf
+        src: ./../templates/laravel-horizon/{{ env }}.laravel-horizon.conf
         dest: ./../../temp/services/laravel-horizon/laravel-horizon.conf
         force: true
     # Enable docker container sections
     - name: 'Create workspace crontab file'
       when: WORKSPACE_ENABLE_CRONTAB
       template:
-        src: ./../templates/workspace/root
+        src: ./../templates/workspace/{{ env }}.root
         dest: ./../../services/workspace/crontab/root
         force: true
     # Generate app files
     - name: 'Create docker .env file'
       template:
-        src: ./../templates/app/docker.env
+        src: ./../templates/app/{{ env }}.docker.env
         dest: ./../../.env
         force: true
     - name: 'Create docker-compose.yml file in root folder'
       template:
-        src: ./../templates/app/docker-compose.yml
+        src: ./../templates/app/{{ env }}.docker-compose.yml
         dest: ./../../docker-compose.yml
         force: true
