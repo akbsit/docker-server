@@ -44,13 +44,13 @@ services:
       context: ./services/redis
       args:
         - REDIS_PASSWORD={{ REDIS_PASSWORD }}
-        - CONTAINER_EXPOSE={{ CONTAINER_REDIS_PORT }}
+        - CONTAINER_EXPOSE=${CONTAINER_REDIS_PORT}
     container_name: ${CONTAINER_PREFIX}{{ CONTAINER_NAME }}-redis
     restart: 'no'
     volumes:
       - ${EXTERNAL_REDIS_PATH}:${CONTAINER_REDIS_PATH}
     ports:
-      - '${EXTERNAL_REDIS_PORT}:{{ CONTAINER_REDIS_PORT }}'
+      - '{{ EXTERNAL_REDIS_PORT }}:${CONTAINER_REDIS_PORT}'
     networks:
       - backend
     logging:
@@ -202,10 +202,10 @@ services:
     networks:
       - backend
     logging:
-      driver: "json-file"
+      driver: 'json-file'
       options:
-        max-size: "10m"
-        max-file: "3"
+        max-size: '10m'
+        max-file: '3'
 {% endif %}
 
 {% if INSTALL_BEANSTALKD %}

@@ -5,7 +5,7 @@
     "database": "redis",
     "databaseConfig": {
         "redis": {
-            "port": "{{ CONTAINER_REDIS_PORT }}",
+            "port": "{{ EXTERNAL_REDIS_PORT }}",
             "host": "redis",
             "password": "{{ REDIS_PASSWORD }}"
         }
