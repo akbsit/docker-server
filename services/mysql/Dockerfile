@@ -11,5 +11,5 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone &
 
 CMD ['mysqld']
 
-ARG EXPOSE=3306
-EXPOSE ${EXPOSE}
+ARG CONTAINER_EXPOSE=3306
+EXPOSE ${CONTAINER_EXPOSE}

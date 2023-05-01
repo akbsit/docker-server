@@ -15,6 +15,11 @@
       file:
         path: ./../../services/workspace/crontab/root
         state: absent
+    - name: 'Remove laravel-echo-server laravel-echo-server.json file'
+      when: INSTALL_LARAVEL_ECHO_SERVER
+      file:
+        path: ./../../services/laravel-echo-server/laravel-echo-server.json
+        state: absent
     - name: 'Remove temp services directory'
       file:
         path: ./../../temp/services
@@ -79,6 +84,12 @@
         src: ./../templates/laravel-horizon/{{ env }}.laravel-horizon.conf
         dest: ./../../temp/services/laravel-horizon/laravel-horizon.conf
         force: true
+    - name: 'Create laravel echo server config file'
+      when: INSTALL_LARAVEL_ECHO_SERVER
+      template:
+        src: ./../templates/laravel-echo-server/{{ env }}.laravel-echo-server.json
+        dest: ./../../services/laravel-echo-server/laravel-echo-server.json
+        force: true
     # Enable docker container sections
     - name: 'Create workspace crontab file'
       when: WORKSPACE_ENABLE_CRONTAB
@@ -86,14 +97,14 @@
         src: ./../templates/workspace/{{ env }}.root
         dest: ./../../services/workspace/crontab/root
         force: true
-    # Generate app files
+    # Generate docker files
     - name: 'Create docker .env file'
       template:
-        src: ./../templates/app/{{ env }}.docker.env
+        src: ./../templates/docker/{{ env }}.env
         dest: ./../../.env
         force: true
     - name: 'Create docker-compose.yml file in root folder'
       template:
-        src: ./../templates/app/{{ env }}.docker-compose.yml
+        src: ./../templates/docker/{{ env }}.docker-compose.yml
         dest: ./../../docker-compose.yml
         force: true

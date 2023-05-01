@@ -10,7 +10,7 @@ After starting the server, it can be seen at `http://localhost/`, display the co
 
 ## Characteristics
 
-* php: `7.2`, `7.4`, `8.0`, `8.1`;
+* php: `8.1`;
 * workspace;
 * mysql;
 * nginx;
@@ -18,16 +18,17 @@ After starting the server, it can be seen at `http://localhost/`, display the co
 * maildev;
 * beanstalkd;
 * supervisor;
-* laravel horizon.
+* laravel-horizon;
+* laravel-echo-server.
 
 ## Server structure
 
 * `.data` - data stored on the main OC and connected to the container;
 * `.docs` - documentations data;
 * `ansible` - configuration files;
-* `service` - connected services;
+* `services` - connected services;
 * `temp` - generated files at server started;
-    * `logs` - service logs;
+    * `logs` - services logs;
 * `www` - server root folder.
 
 ## Useful links

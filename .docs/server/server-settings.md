@@ -15,7 +15,7 @@ ansible-vault view --vault-id password <path>
 #### Example
 
 ```bash
-ansible-vault view --vault-id password ansible/vars/global/vault.yml
+ansible-vault view --vault-id password ansible/vars/global/docker.yml
 ```
 
 ### Decrypt
@@ -33,7 +33,7 @@ ansible-vault decrypt --vault-id password <path>
 #### Example
 
 ```bash
-ansible-vault decrypt --vault-id password ansible/vars/global/vault.yml
+ansible-vault decrypt --vault-id password ansible/vars/global/docker.yml
 ```
 
 ### Encrypt
@@ -51,5 +51,5 @@ ansible-vault encrypt --vault-id password <path>
 #### Example
 
 ```bash
-ansible-vault encrypt --vault-id password ansible/vars/global/vault.yml
+ansible-vault encrypt --vault-id password ansible/vars/global/docker.yml
 ```

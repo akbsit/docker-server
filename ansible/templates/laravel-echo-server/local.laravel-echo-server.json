@@ -1,0 +1,30 @@
+{
+    "authHost": "{{ LARAVEL_ECHO_SERVER_AUTH_HOST }}",
+    "authEndpoint": "/api/broadcasting/auth",
+    "clients": [],
+    "database": "redis",
+    "databaseConfig": {
+        "redis": {
+            "port": "{{ CONTAINER_REDIS_PORT }}",
+            "host": "redis",
+            "password": "{{ REDIS_PASSWORD }}"
+        }
+    },
+    "devMode": true,
+    "host": null,
+    "port": "6001",
+    "protocol": "http",
+    "socketio": {},
+    "sslCertPath": "",
+    "sslKeyPath": "",
+    "subscribers": {
+        "http": true,
+        "redis": true
+    },
+    "apiOriginAllow": {
+        "allowCors": true,
+        "allowOrigin": "*",
+        "allowMethods": "GET, POST",
+        "allowHeaders": "Accept, Accept-Encoding, Accept-Language, Authorization, Cache-Control, Connection, Content-Length, Content-Type, Host, Origin, Pragma, Referer, User-Agent, X-Auth-Token, X-Requested-With, X-CSRF-TOKEN, X-Socket-Id, X-Space-Id"
+    }
+}
