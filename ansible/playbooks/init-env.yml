@@ -89,11 +89,11 @@
     # Generate app files
     - name: 'Create docker .env file'
       template:
-        src: ./../templates/app/{{ env }}.docker.env
+        src: ./../templates/docker/{{ env }}.env
         dest: ./../../.env
         force: true
     - name: 'Create docker-compose.yml file in root folder'
       template:
-        src: ./../templates/app/{{ env }}.docker-compose.yml
+        src: ./../templates/docker/{{ env }}.docker-compose.yml
         dest: ./../../docker-compose.yml
         force: true

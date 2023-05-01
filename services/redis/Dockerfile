@@ -9,7 +9,7 @@ RUN sed -i "s/__REDIS_PASSWORD__/${REDIS_PASSWORD}/g" /usr/local/etc/redis/redis
 
 VOLUME /data
 
-ARG EXPOSE=6267
-EXPOSE ${EXPOSE}
+ARG CONTAINER_EXPOSE=6267
+EXPOSE ${CONTAINER_EXPOSE}
 
 CMD ["redis-server", "/usr/local/etc/redis/redis.conf"]
