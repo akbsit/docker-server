@@ -109,6 +109,21 @@ services:
         max-file: '3'
 {% endif %}
 
+{% if INSTALL_LARAVEL_ECHO_SERVER %}
+  laravel-echo-server:
+    build:
+      context: ./services/laravel-echo-server
+      args:
+        - CONTAINER_EXPOSE=${CONTAINER_LARAVEL_ECHO_SERVER_PORT}
+    container_name: ${CONTAINER_PREFIX}{{ CONTAINER_NAME }}-laravel-echo-server
+    ports:
+      - '${EXTERNAL_LARAVEL_ECHO_SERVER_PORT}:${CONTAINER_LARAVEL_ECHO_SERVER_PORT}'
+    depends_on:
+      - redis
+    networks:
+      - backend
+{% endif %}
+
 {% if INSTALL_PHP_FPM %}
   php-fpm:
     build:

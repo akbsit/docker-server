@@ -15,6 +15,11 @@
       file:
         path: ./../../services/workspace/crontab/root
         state: absent
+    - name: 'Remove laravel-echo-server laravel-echo-server.json file'
+      when: INSTALL_LARAVEL_ECHO_SERVER
+      file:
+        path: ./../../services/laravel-echo-server/laravel-echo-server.json
+        state: absent
     - name: 'Remove temp services directory'
       file:
         path: ./../../temp/services
@@ -78,6 +83,12 @@
       template:
         src: ./../templates/laravel-horizon/{{ env }}.laravel-horizon.conf
         dest: ./../../temp/services/laravel-horizon/laravel-horizon.conf
+        force: true
+    - name: 'Create laravel echo server config file'
+      when: INSTALL_LARAVEL_ECHO_SERVER
+      template:
+        src: ./../templates/laravel-echo-server/{{ env }}.laravel-echo-server.json
+        dest: ./../../services/laravel-echo-server/laravel-echo-server.json
         force: true
     # Enable docker container sections
     - name: 'Create workspace crontab file'
