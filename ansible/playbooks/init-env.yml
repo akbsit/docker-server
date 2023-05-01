@@ -97,7 +97,7 @@
         src: ./../templates/workspace/{{ env }}.root
         dest: ./../../services/workspace/crontab/root
         force: true
-    # Generate app files
+    # Generate docker files
     - name: 'Create docker .env file'
       template:
         src: ./../templates/docker/{{ env }}.env
