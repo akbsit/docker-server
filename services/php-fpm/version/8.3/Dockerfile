@@ -34,3 +34,5 @@ RUN set -eux; \
             --with-freetype; \
     docker-php-ext-install gd; \
     php -r 'var_dump(gd_info());'
+
+RUN docker-php-ext-install bcmath
