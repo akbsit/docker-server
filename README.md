@@ -10,7 +10,10 @@ After starting the server, it can be seen at `http://localhost/`, display the co
 
 ## Characteristics
 
-* php: `8.1`;
+* php:
+  * `8.3` - current;
+  * `8.2` - deprecated;
+  * `8.1` - deprecated.
 * workspace;
 * mysql;
 * nginx;

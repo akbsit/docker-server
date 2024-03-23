@@ -23,21 +23,21 @@ RUN set -eux \
     && apt-get upgrade -y \
     && apt-get install -y --allow-downgrades --allow-remove-essential \
         --allow-change-held-packages \
-        php8.1-cli \
-        php8.1-common \
-        php8.1-curl \
-        php8.1-intl \
-        php8.1-xml \
-        php8.1-mbstring \
-        php8.1-mysql \
-        php8.1-pgsql \
-        php8.1-sqlite \
-        php8.1-sqlite3 \
-        php8.1-zip \
-        php8.1-bcmath \
-        php8.1-memcached \
-        php8.1-gd \
-        php8.1-dev \
+        php8.3-cli \
+        php8.3-common \
+        php8.3-curl \
+        php8.3-intl \
+        php8.3-xml \
+        php8.3-mbstring \
+        php8.3-mysql \
+        php8.3-pgsql \
+        php8.3-sqlite \
+        php8.3-sqlite3 \
+        php8.3-zip \
+        php8.3-bcmath \
+        php8.3-memcached \
+        php8.3-gd \
+        php8.3-dev \
         pkg-config \
         libcurl4-openssl-dev \
         libedit-dev \
@@ -61,7 +61,7 @@ RUN set -eux \
         unzip \
         mysql-client \
     && apt-get clean \
-    && update-alternatives --set php /usr/bin/php8.1
+    && update-alternatives --set php /usr/bin/php8.3
 
 ###########################################################################
 # Composer
